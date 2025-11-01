@@ -9,31 +9,40 @@ class ButtomListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return Container(
+      margin: EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.08),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 16.0),
+            padding: EdgeInsets.only(top: 24, bottom: 20),
             child: Text(
-              '7-Day Forecast',
+              '7-DAY FORECAST',
               style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w700,
-                color: Color(0xFF00796B),
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.6),
+                fontWeight: FontWeight.w500,
+                letterSpacing: 1.0,
               ),
             ),
           ),
           Container(
-            height: 160,
+            height: 140,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.symmetric(horizontal: 16),
               itemCount: 7,
-              separatorBuilder: (context, index) => SizedBox(width: 8),
+              separatorBuilder: (context, index) => SizedBox(width: 12),
               itemBuilder: (context, index) => forecastCard(snapshot, index),
             ),
           ),
+          SizedBox(height: 30),
         ],
       ),
     );
